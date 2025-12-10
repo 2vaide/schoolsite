@@ -1,0 +1,45 @@
+// Функция-обработчик события submit
+function validateAndSubmit(event) {
+    // 1. Предотвращаем стандартную отправку формы (метод event.preventDefault())
+    event.preventDefault(); 
+    
+    // 2. Доступ к объекту формы и его элементам
+    const form = document.getElementById('searchForm');
+    const input = form.elements.query; // Доступ к элементу по имени через коллекцию elements
+    
+    // 3. Получение данных из поля ввода (Свойство value)
+    const query = input.value.trim(); 
+    
+    const messageDisplay = document.getElementById('validationMessage');
+    messageDisplay.textContent = ''; // Очищаем предыдущие сообщения
+
+    // 4. Проверка правильности ввода (Валидация)
+    if (query === '') {
+        messageDisplay.textContent = 'Поле поиска не может быть пустым.';
+        input.focus();
+        return false;
+    }
+
+    if (query.length < 3) {
+        messageDisplay.textContent = 'Запрос должен содержать минимум 3 символа.';
+        input.focus();
+        return false;
+    }
+
+    // 5. Использование checkValidity() для встроенной HTML5-валидации
+    if (!input.checkValidity()) {
+        messageDisplay.textContent = input.validationMessage;
+        input.focus();
+        return false;
+    }
+    
+    // Если валидация успешна:
+    
+    console.log(`✅ Запрос успешно отправлен. Ищем: "${query}"`);
+    alert(`Имитация поиска по запросу: "${query}"`);
+    
+    // Очистка поля ввода (Метод form.reset())
+    form.reset(); 
+    
+    return true; 
+}
