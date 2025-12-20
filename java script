@@ -1,13 +1,12 @@
-// Функция-обработчик события submit
+
 function validateAndSubmit(event) {
-    // 1. Предотвращаем стандартную отправку формы (метод event.preventDefault())
+    (метод event.preventDefault())
     event.preventDefault(); 
-    
-    // 2. Доступ к объекту формы и его элементам
+
     const form = document.getElementById('searchForm');
-    const input = form.elements.query; // Доступ к элементу по имени через коллекцию elements
+    const input = form.elements.query; 
     
-    // 3. Получение данных из поля ввода (Свойство value)
+(Свойство value)
     const query = input.value.trim(); 
     
     const messageDisplay = document.getElementById('validationMessage');
@@ -31,6 +30,7 @@ function validateAndSubmit(event) {
         messageDisplay.textContent = input.validationMessage;
         input.focus();
         return false;
+
     }
     
     // Если валидация успешна:
@@ -43,3 +43,4 @@ function validateAndSubmit(event) {
     
     return true; 
 }
+
