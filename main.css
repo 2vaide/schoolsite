@@ -178,10 +178,11 @@ body{
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 180px; /* можно подогнать под нужный размер */
+  width: 180px; 
   height: auto;
-  z-index: 10; /* чтобы картинка была поверх фона */
-  opacity: 0.9; /* чуть прозрачная — выглядит аккуратнее */
+  z-index: 10;
+  opacity: 0.9; 
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
 
